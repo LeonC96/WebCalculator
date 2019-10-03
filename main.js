@@ -33,6 +33,7 @@ function onButtonClick(button){
   }
 }
 
+// may not be needed now with previousButton
 function operatorPressed(button){
   if(currentOperator != "" && previousButton != "operator"){
     arithmetic();
@@ -69,13 +70,10 @@ function arithmetic(){
   }
 
   display.value = finalNumber;
-  isNextNumber = false;
   lastOperator = currentOperator;
   currentOperator = "";
 
 }
-
-//document.getElementById("equal-sign").onclick = arithmetic;
 
 document.getElementById("all-clear").onclick = function(){
   display.value = 0;
