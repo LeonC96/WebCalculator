@@ -44,7 +44,6 @@ function operatorPressed(button){
 function arithmetic(){
   var finalNumber = 0;
   currentNumber = Number(display.value);
-  console.log(lastNumber);
   switch(currentOperator){
     case "+":
         finalNumber = lastNumber + currentNumber;
@@ -60,7 +59,6 @@ function arithmetic(){
       break;
     //When equal sign is press again before any operator
     default:
-      console.log("Somehow the operator button got this...");
       currentOperator = lastOperator;
       arithmetic();
 
