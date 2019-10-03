@@ -32,7 +32,7 @@ function onButtonClick(button){
 }
 
 function operatorPressed(button){
-  if(currentOperator != "" && currentOperator != button.value){
+  if(currentOperator != "" && !isOperatorPressed){
     arithmetic();
   }
 
