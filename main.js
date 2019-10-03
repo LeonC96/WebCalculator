@@ -59,9 +59,11 @@ function arithmetic(){
       break;
     //When equal sign is press again before any operator
     default:
+      if(lastNumber === 0){
+        return;
+      }
       currentOperator = lastOperator;
       arithmetic();
-
       return;
   }
 
