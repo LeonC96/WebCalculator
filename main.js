@@ -6,7 +6,7 @@ var currentOperator = "";
 var lastOperator = "";
 var currentNumber = 0;
 var lastNumber = 0;
-var isOperatorPressed = false;
+var previousButton = "";
 
 numbers.addEventListener("click", e => {
   onButtonClick(e.target)
@@ -15,30 +15,31 @@ numbers.addEventListener("click", e => {
 function onButtonClick(button){
   if(button.matches("button")){
     if(button.className == "number"){
-      if(display.value == "0" || isOperatorPressed == true){
+      if(display.value == "0" || previousButton == "operator"){
         display.value = button.value;
         lastNumber = currentNumber;
 
-        isOperatorPressed = false;
       } else {
         display.value = display.value + button.value;
       }
+      previousButton = "number";
     } else if(button.className == "operator"){
       operatorPressed(button);
+      previousButton = "operator";
     } else if(button.className == "equal-sign"){
       arithmetic();
+      previousButton = "equal-sign";
     }
   }
 }
 
 function operatorPressed(button){
-  if(currentOperator != "" && !isOperatorPressed){
+  if(currentOperator != "" && previousButton != "operator"){
     arithmetic();
   }
 
   currentNumber = Number(display.value);
   currentOperator = button.value;
-  isOperatorPressed = true;
 }
 
 function arithmetic(){
