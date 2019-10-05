@@ -69,10 +69,13 @@ function arithmetic(){
       return;
   }
 
+  if(previousButton != "equal-sign"){
+	lastNumber = currentNumber;	
+	}
   display.value = finalNumber;
   lastOperator = currentOperator;
   currentOperator = "";
-
+  
 }
 
 document.getElementById("all-clear").onclick = function(){
