@@ -51,13 +51,21 @@ function arithmetic(){
         finalNumber = lastNumber + currentNumber;
       break;
     case "-":
-        finalNumber = lastNumber - currentNumber;
+        if(previousButton == "equal-sign"){
+          finalNumber = currentNumber - lastNumber;
+        } else {
+          finalNumber = lastNumber - currentNumber;
+        }
       break;
     case "*":
         finalNumber = lastNumber * currentNumber;
       break;
     case "/":
-        finalNumber = lastNumber / currentNumber;
+        if(previousButton == "equal-sign"){
+          finalNumber = currentNumber / lastNumber;
+        } else {
+          finalNumber = lastNumber / currentNumber;
+        }
       break;
     //When equal sign is press again before any operator
     default:
@@ -69,13 +77,10 @@ function arithmetic(){
       return;
   }
 
-  if(previousButton != "equal-sign"){
-	lastNumber = currentNumber;	
-	}
   display.value = finalNumber;
   lastOperator = currentOperator;
   currentOperator = "";
-  
+
 }
 
 document.getElementById("all-clear").onclick = function(){
