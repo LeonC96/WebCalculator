@@ -27,11 +27,6 @@ function onButtonClick(button){
       operatorPressed(button);
       previousButton = "operator";
     } else if(button.className == "equal-sign"){
-      if(previousButton == "equal-sign"){
-        console.log(lastNumber);
-        lastNumber = currentNumber;
-        console.log(lastNumber);
-      }
       arithmetic();
       previousButton = "equal-sign";
     }
@@ -84,7 +79,9 @@ function arithmetic(){
   display.value = finalNumber;
   lastOperator = currentOperator;
   currentOperator = "";
-  lastNumber = currentNumber;
+  if(previousButton != "equal-sign"){
+    lastNumber = currentNumber;
+  }
 }
 
 document.getElementById("all-clear").onclick = function(){
