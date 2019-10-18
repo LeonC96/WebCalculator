@@ -66,7 +66,6 @@ function arithmetic(){
           finalNumber = lastNumber / currentNumber;
         }
       break;
-    //When equal sign is press again before any operator
     default:
       if(lastNumber === 0){
         return;
